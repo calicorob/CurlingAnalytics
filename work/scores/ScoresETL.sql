@@ -1,7 +1,7 @@
 USE processing;
 
 
-INSERT INTO Scores.Scores
+INSERT INTO Scores.Scores 
 (
 	 LinescoreID
 	,GameID
@@ -37,7 +37,7 @@ WITH Groups AS
 (
 	SELECT
 		 GameID
-		,ROW_NUMBER() OVER(ORDER BY(SELECT 1)) + (SELECT IFNULL(MAX(GameID),0) FROM Scores.Scores) + 1 AS NewGameID
+		,ROW_NUMBER() OVER(ORDER BY(SELECT 1)) + (SELECT IFNULL(MAX(GameID),0) FROM Scores.Scores)  AS NewGameID
 	FROM ValidatedScores
 	GROUP BY
 		GameID
@@ -46,7 +46,7 @@ WITH Groups AS
 Games AS
 (
 SELECT 
-	 ROW_NUMBER() OVER(ORDER BY(SELECT 1)) + (SELECT IFNULL(MAX(LinescoreID),0) FROM Scores.Scores) + 1 AS LinescoreID
+	 ROW_NUMBER() OVER(ORDER BY(SELECT 1)) + (SELECT IFNULL(MAX(LinescoreID),0) FROM Scores.Scores)  AS LinescoreID
 	,g.NewGameID AS GameID
 	,vs.EventID
 	,vs.TeamID
@@ -149,6 +149,7 @@ FROM Staging st
 LEFT JOIN Scores.Scores s
 ON st.EventID = s.EventID AND st.TeamID = s.TeamID AND st.DrawNum = s.DrawNum
 WHERE s.EventID IS NULL;
+
 
 
 
