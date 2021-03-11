@@ -1,14 +1,29 @@
-USE Scores;
 
 DELIMITER $
 BEGIN NOT ATOMIC
-	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Scores' AND TABLE_SCHEMA = 'Scores') THEN
-		SELECT 1 AS ScoresTableExists;
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.schemata WHERE schema_name = 'staging') THEN
+		SELECT 1 AS StagingSchemaExists;
 	ELSE
-		CREATE TABLE Scores
+		CREATE DATABASE staging;
+		GRANT ALL PRIVILEGES ON staging.* TO scraper@'%' IDENTIFIED BY 'scraper';
+		FLUSH PRIVILEGES;
+	END IF;
+END $
+DELIMITER ;
+
+
+
+USE staging;
+
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Linescore' AND TABLE_SCHEMA = 'staging') THEN
+		SELECT 1 AS LinescoreTableExists;
+	ELSE
+		CREATE TABLE Linescore
 		(
-				 LinescoreID INT NOT NULL
-				,GameID INT NOT NULL
+				 
+				 GameID INT NOT NULL
 				,EventID INT NOT NULL
 				,TeamID INT NOT NULL
 				,EventName TEXT NOT NULL
@@ -37,6 +52,7 @@ BEGIN NOT ATOMIC
 				,EventDayStart INT NOT NULL
 				,EventDayEnd INT NOT NULL
 				,PRIMARY KEY(TeamID,EventID,DrawNum)
+	
 				 
 		
 		

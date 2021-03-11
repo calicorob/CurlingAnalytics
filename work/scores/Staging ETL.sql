@@ -1,10 +1,10 @@
-USE processing;
+USE validated;
 
 
-INSERT INTO Scores.Scores 
+INSERT INTO staging.Linescore 
 (
-	 LinescoreID
-	,GameID
+	 
+	 GameID
 	,EventID
 	,TeamID
 	,EventName
@@ -33,6 +33,7 @@ INSERT INTO Scores.Scores
 	,EventDayStart
 	,EventDayEnd
 )
+/*
 WITH Groups AS
 (
 	SELECT
@@ -42,12 +43,11 @@ WITH Groups AS
 	GROUP BY
 		GameID
 		
-),
-Games AS
+), */
+WITH Games AS
 (
 SELECT 
-	 ROW_NUMBER() OVER(ORDER BY(SELECT 1)) + (SELECT IFNULL(MAX(LinescoreID),0) FROM Scores.Scores)  AS LinescoreID
-	,g.NewGameID AS GameID
+	 vs.GameID
 	,vs.EventID
 	,vs.TeamID
 	,vs.EventName
@@ -76,15 +76,13 @@ SELECT
 	,vs.EventDayStart
 	,vs.EventDayEnd
 	,ROW_NUMBER() OVER(PARTITION BY TeamID, EventID, DrawNum ORDER BY (SELECT 1)) AS rid
-FROM ValidatedScores vs
-INNER JOIN Groups g
-ON g.GameID = vs.GameID
+FROM validated.Linescore vs
 ),
 Staging AS
 (
 SELECT 
-	 LinescoreID
-	,GameID
+	
+	 GameID
 	,EventID
 	,TeamID
 	,EventName
@@ -116,8 +114,7 @@ FROM Games
 WHERE rid = 1
 )
 SELECT
-	 st.LinescoreID
-	,st.GameID
+	 st.GameID
 	,st.EventID
 	,st.TeamID
 	,st.EventName
@@ -146,9 +143,10 @@ SELECT
 	,st.EventDayStart
 	,st.EventDayEnd
 FROM Staging st
-LEFT JOIN Scores.Scores s
-ON st.EventID = s.EventID AND st.TeamID = s.TeamID AND st.DrawNum = s.DrawNum
-WHERE s.EventID IS NULL;
+LEFT JOIN staging.Linescore l
+ON l.GameID = st.GameID AND l.EventID = st.EventID AND l.DrawNum = st.DrawNum
+WHERE l.GameID IS NULL ;
+
 
 
 
