@@ -1,5 +1,5 @@
 """
-    Module for holding CurlingZone.com scraping functions
+    Module for scraping Curlingzone.com linescores
     Author: Robert Currie
     Date: January 31, 2021
 
@@ -10,49 +10,11 @@
 ## data handling
 import pandas as pd 
 
-## scraping
-from bs4 import BeautifulSoup 
-
-## also scraping 
-import requests 
-
 ## regex
 import re 
 
-
-## url functions
-
-
-def get_soup(url,parser='html.parser',verify=True):
-    """
-        Gets the Beautifulsoup object which holds the data to be scrapped
-        
-        Args:
-            url (str): URL of the page to be scrapped
-            parser (str): Type of parser to be used 
-        Returns:
-            BeautifulSoup object
-    
-    
-    """
-    request = get_request_response(url,verify=verify)
-    
-    return BeautifulSoup(request.content,parser)
-
-def get_request_response(url,verify=True):
-    """
-    
-        Requests the content to be scrapped
-        
-        Args:
-            url (url): URL of the page to be scrapped
-            
-        Returns:
-            request object
-    
-    """
-    
-    return requests.get(url,verify=verify)
+## scraping
+from scraping.core.base import get_soup,find_all,find
 
 
 def get_event_id_from_url(url):
@@ -257,7 +219,7 @@ def transform_scores_frame(scores_frame):
 
 
 
-def scrape_all(url,verify=True,game_id=1):
+def scrape_all_games(url,verify=True,game_id=1):
     
     soup = get_soup(url,verify=verify)
     
