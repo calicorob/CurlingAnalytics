@@ -144,7 +144,7 @@ SELECT
 	,st.EventDayEnd
 FROM Staging st
 LEFT JOIN staging.Linescore l
-ON l.GameID = st.GameID AND l.EventID = st.EventID AND l.DrawNum = st.DrawNum
+ON l.TeamID = st.TeamID AND l.EventID = st.EventID AND l.DrawNum = st.DrawNum
 WHERE l.GameID IS NULL ;
 
 

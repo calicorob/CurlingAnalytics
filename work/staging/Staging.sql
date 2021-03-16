@@ -61,3 +61,27 @@ BEGIN NOT ATOMIC
 END $
 DELIMITER ;
 
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'PivotedLinescore' AND TABLE_SCHEMA = 'staging') THEN
+		SELECT 1 AS PivotedLinescoreTableExists;
+	ELSE
+		CREATE TABLE PivotedLinescore
+		(	 
+			 GameID INT NOT NULL
+			,EndNum INT NOT NULL
+			,EndResult INT NOT NULL
+			,Hammer BOOLEAN NOT NULL
+			,Score INT NOT NULL
+			,TeamID INT NOT NULL
+			,PRIMARY KEY (GameID, EndNum,TeamID)
+		
+		
+
+		);
+	END IF;
+END $
+DELIMITER ;
+
+
+
