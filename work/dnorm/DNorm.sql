@@ -85,3 +85,30 @@ DELIMITER ;
 
 
 
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='Ranking' AND TABLE_SCHEMA = 'dnorm') THEN
+		SELECT 1 AS RankingTableExists;
+	ELSE
+		CREATE TABLE Ranking
+			(
+				 RankingID INT NOT NULL
+				,TeamLink TEXT NOT NULL
+				,TeamID INT NOT NULL
+				,Name VARCHAR(256) NOT NULL
+				,YTDPoints FLOAT NOT NULL
+				,PointTotal FLOAT NOT NULL
+				,Rank INT NOT NULL
+				,Year INT NOT NULL
+				,PRIMARY KEY(TeamID)
+				
+			
+			);
+	END IF;
+END $
+DELIMITER ;
+
+
+
+
+
