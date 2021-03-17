@@ -65,11 +65,12 @@ BEGIN NOT ATOMIC
 		CREATE TABLE Team
 			(
 				 TeamID INT NOT NULL
+				,Year INT NOT NULL
 				,Player VARCHAR(256) NOT NULL
 				,Position CHAR(1) NOT NULL
 				,TeamClub VARCHAR(256) NOT NULL
 				,TeamLink TEXT NOT NULL
-				,CurlingZoneTeamID INT NOT NULL
+				
 			
 			
 			);
