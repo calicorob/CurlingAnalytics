@@ -1,0 +1,42 @@
+
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.schemata WHERE schema_name = 'event') THEN
+		SELECT 1 AS EventSchemaExists;
+	ELSE
+		CREATE DATABASE event;
+		GRANT ALL PRIVILEGES ON dnorm.* TO scraper@'%' IDENTIFIED BY 'scraper';
+		FLUSH PRIVILEGES;
+	END IF;
+END $
+DELIMITER ;
+
+
+USE event;
+
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Event' AND TABLE_SCHEMA = 'event') THEN
+		SELECT 1 AS EventTableExists;
+	ELSE
+		CREATE TABLE Event
+		(
+				 
+			
+				 EventID INT NOT NULL
+				,EventName TEXT NOT NULL
+				,Year INT NOT NULL
+				,StartMonth INT NOT NULL
+				,EndMonth INT NOT NULL
+				,EventDayStart INT NOT NULL
+				,EventDayEnd INT NOT NULL
+				,PRIMARY KEY(EventID)
+	
+				 
+		
+		
+		);
+	END IF; 
+END $
+DELIMITER ;
+
