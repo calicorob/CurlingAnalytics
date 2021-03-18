@@ -5,7 +5,7 @@ BEGIN NOT ATOMIC
 		SELECT 1 AS EventSchemaExists;
 	ELSE
 		CREATE DATABASE event;
-		GRANT ALL PRIVILEGES ON dnorm.* TO scraper@'%' IDENTIFIED BY 'scraper';
+		GRANT ALL PRIVILEGES ON event.* TO scraper@'%' IDENTIFIED BY 'scraper';
 		FLUSH PRIVILEGES;
 	END IF;
 END $

@@ -44,11 +44,12 @@ def get_player_info_from_soup(soup):
 def get_player_info_frame_from_soup(soup):
 	return pd.DataFrame(data=get_player_info_from_soup(soup))
 	
-def scrape_all_teams(url,verify=True,team_id =1):
+def scrape_all_teams(url,verify=True,team_id =1,year=None):
 	soup = get_soup(url=url,verify=verify)
 	
 	df = get_player_info_frame_from_soup(soup=soup)
 	df['TeamID'] = df.groupby(['TeamHash']).ngroup() + team_id
+	df['Year'] = year
 	df = df.drop(['TeamHash'],axis=1)
 	
 	return df 

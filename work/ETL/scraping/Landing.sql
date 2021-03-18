@@ -107,6 +107,7 @@ BEGIN NOT ATOMIC
 			,Position VARCHAR(8) NOT NULL
 			,TeamClub VARCHAR(256) NOT NULL
 			,TeamLink TEXT NOT NULL
+			,Year INT NOT NULL
 
 		);
 	END IF;
