@@ -1,0 +1,11 @@
+TRUNCATE TABLE landing.Linescore;
+TRUNCATE TABLE processing.Linescore;
+TRUNCATE TABLE staging.Linescore;
+
+TRUNCATE TABLE landing.PivotedLinescore;
+TRUNCATE TABLE staging.PivotedLinescore;
+RUNCATE TABLE landing.Ranking;
+TRUNCATE TABLE processing.Ranking;
+TRUNCATE TABLE staging.Ranking;
+
+
