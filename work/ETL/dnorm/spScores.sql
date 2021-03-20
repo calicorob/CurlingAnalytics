@@ -20,6 +20,7 @@ BEGIN
 			,pl.Hammer
 			,pl.Score
 			,pl.TeamID
+			,e.EventID
 			,e.EventName
 			,e.Year
 			,e.EndMonth
