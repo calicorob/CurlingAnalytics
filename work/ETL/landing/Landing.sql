@@ -142,6 +142,7 @@ BEGIN NOT ATOMIC
 		(
 			  EventID INT NOT NULL
 			 ,Classification INT NULL
+			 ,LandingTime DATETIME NOT NULL DEFAULT NOW()
 
 		);
 	END IF;

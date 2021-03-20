@@ -40,3 +40,26 @@ BEGIN NOT ATOMIC
 END $
 DELIMITER ;
 
+DELIMITER $
+BEGIN NOT ATOMIC
+	IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'EventType' AND TABLE_SCHEMA = 'event') THEN
+		SELECT 1 AS EventTypeTableExists;
+	ELSE
+		CREATE TABLE EventType
+		(
+				 
+				 EventTypeID INT NOT NULL
+				,EventID INT NOT NULL
+				,Classification INT NULL
+				,PRIMARY KEY(EventID)
+				
+	
+				 
+		
+		
+		);
+	END IF; 
+END $
+DELIMITER ;
+
+
