@@ -115,6 +115,7 @@ BEGIN NOT ATOMIC
 			(
 				  EventID INT NOT NULL
 				 ,Classification INT NULL
+				 ,PRIMARY KEY(EventID)
 				
 			
 			);

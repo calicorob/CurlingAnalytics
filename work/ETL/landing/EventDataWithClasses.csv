@@ -2167,7 +2167,7 @@ EventID,EventName,Year,StartMonth,EndMonth,EventDayStart,EventDayEnd,Classificat
 5393,EJCT Prague Junior Mens Cup,2018,11,11,16,19,
 5396,Medicine Hat Charity Classic,2018,10,10,19,22,3
 5397,Medicine Hat Charity Classic,2018,10,10,19,22,2
-5399,Boundary Ford Curling Classic,2018,11,11,23,26,2
+5399,Boundary Ford Curling Classic,2018,11,11,23,26,0
 5400,CurlON Men's Cash Spiel - Acton,2018,12,12,14,16,3
 5401,Estevan SCT,2018,11,12,30,2,3
 5402,CurlON Men's Cash Spiel - RCMP,2018,12,12,14,16,3
@@ -2730,7 +2730,7 @@ EventID,EventName,Year,StartMonth,EndMonth,EventDayStart,EventDayEnd,Classificat
 6020,Goldline US Open of Curling - Contender Round,2019,9,9,13,15,3
 6022,Curling Masters Champery,2019,10,10,17,20,3
 6023,Qualico Mixed Doubles Classic,2020,1,1,2,5,
-6024,Boundary Ford Curling Classic,2019,11,11,22,25,2
+6024,Boundary Ford Curling Classic,2019,11,11,22,25,
 6025,McKee Homes Fall Curling Classic,2019,10,10,12,14,3
 6027,Brantford NISSAN Classic,2019,11,12,29,1,3
 6028,China Open Mixed Doubles,2019,6,6,23,27,
@@ -3068,7 +3068,7 @@ EventID,EventName,Year,StartMonth,EndMonth,EventDayStart,EventDayEnd,Classificat
 6447,Danish Men's Championship,2020,2,3,28,1,3
 6448,Danish Mixed Doubles Championship,2019,9,10,27,19,
 6459,Norwegian National Men's Championship,2020,3,3,5,8,1
-6460,Norwegian National Women's Championship,2020,3,3,5,8,2
+6460,Norwegian National Women's Championship,2020,3,3,5,8,
 6461,The Sheriff Fund,2020,3,3,24,28,
 6464,SWISSCURLING Junior Men's Championship,2020,3,3,6,15,
 6465,SWISSCURLING Junior Women's Championship,2020,3,3,6,15,
