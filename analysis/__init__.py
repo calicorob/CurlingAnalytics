@@ -16,10 +16,23 @@ import pandas as pd
 database = 'dnorm'
 engine= get_engine(database=database)
 
-def get_scores(classification=0):
+def _get_scores(classification=0):
     sql = "CALL spGamesForAnalysis({})".format(classification)
     
     return pd.read_sql(sql,con=engine)
+
+def get_scores(classification):
+    if classification.lower() == 'women 10 end':
+        return _get_scores(classification=0)
+    elif classification.lower()  == 'men 10 end':
+        return _get_scores(classification=1)
+    elif classification.lower() == 'women 8 end':
+        return _get_scores(classification=2)
+    elif classification.lower() == 'men 8 end':
+        return _get_scores(classification=3,)
+    else:
+        raise NotImplementedError("Invalid classification passed, soz")
+
 
 def get_win_pcts(classification=0):
     df = get_scores(classification=classification)
