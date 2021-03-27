@@ -22,7 +22,7 @@ Medium articles written:
 	* [Analysis](/work/Analysis): Contains notebooks / scripts for carrying out analysis. 
 	
 ## Interesting Files
-* [scoring in Curling - medium article notebook](/work/Analysis/LinescoreAnalysis/LinescoreAnalysis.ipynb)
+* [Scoring in Curling - Medium article notebook](/work/Analysis/LinescoreAnalysis/LinescoreAnalysis.ipynb)
 * [Scenario win percentages notebook](/work/Analysis/WinPcts/ScenarioWinPct.ipynb)
 * [Linescore scraping notebook](/work/ETL/landing/ScrapingNotebook-Linescores.ipynb)
 
