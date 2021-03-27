@@ -1,4 +1,4 @@
-"""
+`"""
     Module for misc transformations of linescore data
     Author: Robert Currie
     Date: Feb 25, 2021
@@ -40,12 +40,34 @@ def replace_empty_string(text):
         return text
     
 def replace_finished_game_vals(text,vals_to_be_replaced=['X']):
+    """
+        Replaces chosen values with np.nan
+        
+        Args:
+            text (str): string to be replaced
+        Returns:
+            Unchanged text, or np.nan value
+    
+    """
     if text in vals_to_be_replaced:
         return np.nan
     else:
         return text
     
 def map_season(year,month):
+    """
+        Identifies which curling season an event occured on, based on what month it happened in
+    
+        Args:
+            year (int): year the event occured
+            month (int): month the event occured 
+            
+        Returns:
+            str, text of the season 
+    
+    """
+    
+    ## generally new seasons start in August 
     if month >= 8:
         return "{}-{}".format(str(year),str(year+1))
     else:

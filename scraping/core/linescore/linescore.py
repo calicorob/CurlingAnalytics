@@ -33,24 +33,6 @@ def get_event_id_from_url(url):
     return re.search(r"(?<=eventid=)(\d+)",url)[0]
 
 
-def find_all(soup,**kwargs):
-    """
-        Returns all the PagElements which match a given criteria
-        See BeautifulSoup find_all documentation
-        
-        Args:
-            soup (BeautifulSoup): BeautifulSoup object containing the web page content
-            
-        Returns:
-            list of PageElements
-    
-    
-    """
-    return soup.find_all(**kwargs)
-
-def find(soup,**kwargs):
-    return soup.find(**kwargs)
-
 def find_all_linescorehammers(soup):
     
     return find_all(soup,name='td',attrs={'class':['linescorehammer']})

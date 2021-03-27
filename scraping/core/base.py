@@ -1,3 +1,11 @@
+"""
+    Base file for scraping CurlingZone.com with bs4
+    Author: Robert Currie
+    Date: March 27, 2021
+
+"""
+
+
 ## scraping
 from bs4 import BeautifulSoup 
 
