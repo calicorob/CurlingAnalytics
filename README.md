@@ -14,7 +14,7 @@ Medium articles written:
 ## Directory
 * [config](/config): Module with DB connection and other misc. parameters.
 * [analysis](/analysis): Module with helper functions used for during analysis. 
-* [scraping](/scraping): Module for scraping linescores. 
+* [scraping](/scraping): Custom lbrary for scraping linescores. 
 * [processing](/processing): Module with helper functions for ETL / data clean-up work.
 * [pivoting](/pivoting): Module for pivoting linescores into analysis-friendly format.
 * [work](/work): Contains scripts / Notebooks for carrying out the work. 
@@ -24,7 +24,7 @@ Medium articles written:
 ## Interesting Files
 * [Differences in linescore article notebook](/work/Analysis/LinescoreAnalysis/LinescoreAnalysis.ipynb)
 * [Scenario win percentages notebook](/work/Analysis/WinPcts/ScenarioWinPct.ipynb)
-* [Linescore Scraping Notebook](/work/ETL/landing/ScrapingNotebook-Linescores.ipynb)
+* [Linescore scraping notebook](/work/ETL/landing/ScrapingNotebook-Linescores.ipynb)
 
 
 
