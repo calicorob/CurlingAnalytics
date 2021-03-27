@@ -21,7 +21,7 @@ Medium articles written:
 	* [ETL](/work/ETL): Contains DDL / ETL scripts for scraping, transforming and cleaning up the data.
 	* [Analysis](/work/Analysis): Contains Notebooks / scripts for carrying out analysis. 
 	
-## Relevant Files
+## Interesting Files
 * [Differences in linescore article notebook](/work/Analysis/LinescoreAnalysis/LinescoreAnalysis.ipynb)
 * [Scenario win percentages notebook](/work/Analysis/WinPcts/ScenarioWinPct.ipynb)
 * [Linescore Scraping Notebook](/work/ETL/landing/ScrapingNotebook-Linescores.ipynb)
