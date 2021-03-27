@@ -58,13 +58,13 @@ def _get_win_pcts_matrix(classification=0,hammer=0):
 
 def get_win_pcts_matrix(classification,hammer):
     if classification.lower() == 'women 10 end':
-        return _get_win_pcts_matrix(classification=0,hammer=hammer)
+        return _get_win_pcts_matrix(classification=classification,hammer=hammer)
     elif classification.lower()  == 'men 10 end':
-        return _get_win_pcts_matrix(classification=1,hammer=hammer)
+        return _get_win_pcts_matrix(classification=classification,hammer=hammer)
     elif classification.lower() == 'women 8 end':
-        return _get_win_pcts_matrix(classification=2,hammer=hammer)
+        return _get_win_pcts_matrix(classification=classification,hammer=hammer)
     elif classification.lower() == 'men 8 end':
-        return _get_win_pcts_matrix(classification=3,hammer=hammer)
+        return _get_win_pcts_matrix(classification=classification   ,hammer=hammer)
     else:
         raise NotImplementedError("Invalid classification passed, soz")
         
