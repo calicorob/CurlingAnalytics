@@ -8,6 +8,12 @@ General setup of the repository is as follows:
 * The home directories, e.g. config, analysis, scraping, pivoting...etc. contain the Python libraries / modules wrote to support scraping, ETL, analysis, etc. 
 * The work directory contains the work done, e.g. ETL, analysis. 
 
+General process was:
+* Scrape linescores / rankings / team information off of the website. 
+* Store in a MariaDB MySQL database on a raspberry pi. 
+* Clean-up, validate, ETL information.
+* Analyze. 
+
 Medium articles written: 
 1. [Scoring in Curling — Do Games From Different Events Look Different?](https://medium.com/@robert.art.currie/scoring-in-curling-do-games-from-different-events-look-different-90c3588c46d7)
 
