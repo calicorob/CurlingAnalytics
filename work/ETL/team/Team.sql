@@ -5,7 +5,7 @@ BEGIN NOT ATOMIC
 		SELECT 1 AS TeamSchemaExists;
 	ELSE
 		CREATE DATABASE team;
-		GRANT ALL PRIVILEGES ON dnorm.* TO scraper@'%' IDENTIFIED BY 'scraper';
+		GRANT ALL PRIVILEGES ON team.* TO scraper@'%' IDENTIFIED BY 'scraper';
 		FLUSH PRIVILEGES;
 	END IF;
 END $

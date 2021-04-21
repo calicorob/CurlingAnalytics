@@ -30,6 +30,7 @@ BEGIN NOT ATOMIC
 				,EndMonth INT NOT NULL
 				,EventDayStart INT NOT NULL
 				,EventDayEnd INT NOT NULL
+				,Season VARCHAR(32)
 				,PRIMARY KEY(EventID)
 	
 				 

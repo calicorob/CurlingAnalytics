@@ -7,6 +7,7 @@ INSERT INTO event.Event
 	,EndMonth
 	,EventDayStart
 	,EventDayEnd
+	,Season
 	
 )
 WITH Events AS
@@ -40,6 +41,11 @@ EventsWithMonthNumbers AS
 		 ,ml2.MonthNumber AS EndMonth
 		 ,e.EventDayStart
 		 ,e.EventDayEnd
+		 ,CASE
+			WHEN e.Year >= 6 
+				THEN CONCAT(Year,'-',Year+1)
+				ELSE CONCAT(Year-1,'-',Year+1)
+		  END AS Season
 	FROM Events e
 	LEFT JOIN lookup.MonthLookup ml1
 	ON ml1.Month = e.StartMonth

@@ -24,6 +24,7 @@ BEGIN
 			,e.EventName
 			,e.Year
 			,e.EndMonth
+			,e.EventDayEnd
 			,l.FinalScore
 		FROM dnorm.PivotedLinescore pl
 		INNER JOIN link.GameEvent ge
