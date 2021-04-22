@@ -1,15 +1,7 @@
-DELIMITER $
-
-CREATE PROCEDURE dnorm.spGamesForAnalysis 
-(
-	EventClass INT
-
-)
-
-BEGIN
+USE dnorm;
 
 
-	WITH RelGames AS
+WITH RelGames AS
 	(
 
 		SELECT
@@ -27,14 +19,13 @@ BEGIN
 			,e.EventDayEnd
 			,e.Season
 			,l.FinalScore
-			,l.Team
 		FROM dnorm.PivotedLinescore pl
 		INNER JOIN link.GameEvent ge
 		ON pl.GameID = ge.GameID
 		INNER JOIN event.Event e 
 		ON e.EventID = ge.EventID
 		INNER JOIN event.EventType et
-		ON et.EventID = e.EventID AND et.Classification = EventClass
+		ON et.EventID = e.EventID AND et.Classification = 3
 		INNER JOIN dnorm.Linescore l
 		ON l.GameID = pl.GameID AND l.TeamID = pl.TeamID
 		
@@ -58,12 +49,5 @@ BEGIN
 		ON rg1.GameID = rg2.GameID and rg1.EndNum = rg2.EndNum
 		WHERE rg1.TeamID <> rg2.TeamID
 	)
-	SELECT *
-	FROM RelGamesSituation;
-
-END; 
-
-DELIMITER;
-
-
-
+SELECT *
+FROM RelGamesSituation;

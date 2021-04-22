@@ -34,7 +34,8 @@ def get_scores(classification):
         raise NotImplementedError("Invalid classification passed, soz")
 
 
-def get_win_pcts(classification=0):
+def get_win_pcts(classification='men 8 end'):
+    
     df = get_scores(classification=classification)
     
     cols = ['EndNum','EndSituation','Hammer','Win']
@@ -49,7 +50,7 @@ def get_win_pcts(classification=0):
     
     return df.groupby(cols)[[col]].aggregate(['count','mean'])
 
-def _get_win_pcts_matrix(classification=0,hammer=0):
+def _get_win_pcts_matrix(classification,hammer=0):
     df = get_win_pcts(classification=classification)
     
     
