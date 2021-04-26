@@ -8,7 +8,8 @@
 
 from scraping.core.linescore.linescore import (
 
-    scrape_all_games
+     scrape_all_games
+    ,get_num_draws_from_soup
 
 
 )
