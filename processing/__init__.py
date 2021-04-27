@@ -1,4 +1,4 @@
-`"""
+"""
     Module for misc transformations of linescore data
     Author: Robert Currie
     Date: Feb 25, 2021

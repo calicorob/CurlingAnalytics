@@ -42,9 +42,9 @@ EventsWithMonthNumbers AS
 		 ,e.EventDayStart
 		 ,e.EventDayEnd
 		 ,CASE
-			WHEN e.Year >= 6 
+			WHEN ml2.MonthNumber >= 6 
 				THEN CONCAT(Year,'-',Year+1)
-				ELSE CONCAT(Year-1,'-',Year+1)
+				ELSE CONCAT(Year-1,'-',Year)
 		  END AS Season
 	FROM Events e
 	LEFT JOIN lookup.MonthLookup ml1
